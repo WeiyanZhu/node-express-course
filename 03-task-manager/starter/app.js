@@ -7,6 +7,7 @@ const app = express();
 const port = 5000;
 
 app.use(express.json());
+app.use(express.static(`./public`));
 app.use("/api/v1/tasks", taskRouter);
 
 const startServer = async () => {
