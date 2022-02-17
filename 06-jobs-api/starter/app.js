@@ -13,8 +13,9 @@ app.use(express.json());
 // routes
 const authRouter = require(`./routes/auth`);
 const jobRouter = require(`./routes/jobs`);
+const authenticationMiddleware = require(`./middleware/authentication`);
 app.use(`/api/v1/auth`, authRouter);
-app.use(`/api/v1/job`, jobRouter);
+app.use(`/api/v1/job`, authenticationMiddleware, jobRouter);
 
 app.get('/', (req, res) => {
   res.send('jobs api');
