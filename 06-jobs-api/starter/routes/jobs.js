@@ -3,9 +3,7 @@ const express = require(`express`);
 
 const router = express.Router();
 router.get(`/`, getAllJobs);
-router.get(`/:id`, getJob);
 router.post(`/`, createJob);
-router.patch(`/:id`, updateJob);
-router.delete(`/:id`, deleteJob);
+router.route(`/:id`).get(getJob).patch(updateJob).delete(deleteJob);
 
 module.exports = router;
